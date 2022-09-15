@@ -1,0 +1,77 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
+public class Main {
+    static int S;
+    public static int comparisons = 0;
+    static int[] cur_arr;
+    public static void main(String[] args) { 
+        // Generate input data
+        List<int[]> all_arr = new ArrayList<>();
+        int n = 1000;
+        for (int i = 0; i < 5; i++) {
+            all_arr.add(generateArray(n));
+            n *= 10;
+        }
+
+        // Analyze time complexity
+        // Value of S fixed at 10
+        S = 10;
+        for (int[] arr : all_arr) {
+            cur_arr = arr.clone();
+            Sort.hybrid(cur_arr, 0, arr.length-1, 10);
+            keyComparisons();
+        }
+        System.out.println();
+        
+        // Input size n fixed at 100000
+        for (int i = 3; i <= 30; i+=3) {
+            S = i;
+            cur_arr = all_arr.get(2).clone();
+            Sort.hybrid(cur_arr, 0, 99999, S);
+            keyComparisons();
+        }
+        System.out.println();
+
+        // Compare with original Mergesort
+        System.out.println("Hybrid algorithm:");
+        S = 20;
+        cur_arr = all_arr.get(4).clone();
+        long startTime = System.currentTimeMillis();
+        Sort.hybrid(cur_arr, 0, 9999999, S);
+        long endTime = System.currentTimeMillis();
+        keyComparisons();
+        System.out.println("Time taken: " + (endTime - startTime) + " ms\n");
+
+        System.out.println("Mergesort algorithm:");
+        cur_arr = all_arr.get(4).clone();
+        startTime = System.currentTimeMillis();
+        Sort.merge(cur_arr, 0, 9999999);
+        endTime = System.currentTimeMillis();
+        keyComparisons();
+        System.out.println("Time taken: " + (endTime - startTime) + " ms\n");
+    }
+
+    static int[] generateArray(int size) { 
+        int[] arr = new int[size];
+        Random rd = new Random();
+        for (int i = 0; i < size; i++)  
+            arr[i] = rd.nextInt(size-1); 
+        return arr;
+    }
+
+    static void keyComparisons() {
+        System.out.println("Key comparisons for array of size " + cur_arr.length + " and S = " + S + ": " + comparisons);
+        comparisons = 0;
+    }
+
+    static boolean validateArray(int[] arr) {
+        for (int i = 0; i < arr.length-1; i++) {
+            if (arr[i] > arr[i+1])
+                return false;
+        }
+        return true;
+    }
+}
