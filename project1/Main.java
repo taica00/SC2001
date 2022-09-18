@@ -56,7 +56,7 @@ public class Main {
         System.out.println("Time taken: " + (endTime - startTime) + " ms\n");
     }
 
-    static int[] generateArray(int size) { 
+    private static int[] generateArray(int size) { 
         int[] arr = new int[size];
         Random rd = new Random();
         for (int i = 0; i < size; i++)  
@@ -64,7 +64,7 @@ public class Main {
         return arr;
     }
 
-    static void keyComparisons() {
+    private static void keyComparisons() {
         System.out.println("Key comparisons for array of size " + cur_arr.length + " and S = " + S + ": " + comparisons);
         comparisons = 0;
     }
