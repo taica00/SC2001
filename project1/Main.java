@@ -7,12 +7,13 @@ public class Main {
     static int S;
     public static int comparisons = 0;
     static int[] cur_arr;
+    static final int TEN_MIL = 10000000;
     
     public static void main(String[] args) { 
         // Generate input data
         List<int[]> all_arr = new ArrayList<>();
         int n = 1000;
-        for (int i = 0; i < 5; i++) {
+        while (n <= TEN_MIL) {
             all_arr.add(generateArray(n));
             n *= 10;
         }
@@ -41,7 +42,7 @@ public class Main {
         S = 20;
         cur_arr = all_arr.get(4).clone();
         long startTime = System.currentTimeMillis();
-        Sort.hybrid(cur_arr, 0, 9999999, S);
+        Sort.hybrid(cur_arr, 0, TEN_MIL-1, S);
         long endTime = System.currentTimeMillis();
         keyComparisons();
         System.out.println("Time taken: " + (endTime - startTime) + " ms\n");
@@ -49,7 +50,7 @@ public class Main {
         System.out.println("Mergesort algorithm:");
         cur_arr = all_arr.get(4).clone();
         startTime = System.currentTimeMillis();
-        Sort.merge(cur_arr, 0, 9999999);
+        Sort.merge(cur_arr, 0, TEN_MIL-1);
         endTime = System.currentTimeMillis();
         keyComparisons();
         System.out.println("Time taken: " + (endTime - startTime) + " ms\n");
