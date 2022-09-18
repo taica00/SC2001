@@ -33,7 +33,7 @@ public class Sort {
                 arr[lo++] = arr2[j++];
             else
                 arr[lo++] = arr1[i++];
-            Main.comparisons++;
+            Utilities.comparisons++;
         }
         // right sublist is empty
         while (i < arr1.length) 
@@ -46,7 +46,7 @@ public class Sort {
     private static void insertion(int[] arr, int lo, int hi) {
         for (int i = lo + 1; i <= hi; i++) {
             for (int j = i; j > lo; j--) {
-                Main.comparisons++;
+                Utilities.comparisons++;
                 if (arr[j] < arr[j-1])
                     swap(arr, j, j-1);
                 else
