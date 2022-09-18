@@ -37,6 +37,21 @@ public class Main {
         }
         System.out.println();
 
+        // Determine optimal value of S
+        for (int i = 1000; i <= TEN_MIL; i*=10) {
+            n = i;
+            for (int j = 3; j <= 30; i+=3) {
+                S = j;
+                cur_arr = all_arr.get(Math.log10(n)-3).clone();
+                long startTime = System.currentTimeMillis();
+                Sort.hybrid(cur_arr, 0, n-1, S);
+                long endTime = System.currentTimeMillis();
+                keyComparisons();
+                System.out.println("Time taken: " + (endTime - startTime) + " ms\n");
+            }
+        }
+        System.out.println();
+
         // Compare with original Mergesort
         System.out.println("Hybrid algorithm:");
         S = 20;
