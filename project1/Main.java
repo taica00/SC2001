@@ -7,6 +7,7 @@ public class Main {
     static int S;
     public static int comparisons = 0;
     static int[] cur_arr;
+    
     public static void main(String[] args) { 
         // Generate input data
         List<int[]> all_arr = new ArrayList<>();
@@ -65,13 +66,5 @@ public class Main {
     static void keyComparisons() {
         System.out.println("Key comparisons for array of size " + cur_arr.length + " and S = " + S + ": " + comparisons);
         comparisons = 0;
-    }
-
-    static boolean validateArray(int[] arr) {
-        for (int i = 0; i < arr.length-1; i++) {
-            if (arr[i] > arr[i+1])
-                return false;
-        }
-        return true;
     }
 }

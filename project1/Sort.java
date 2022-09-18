@@ -1,7 +1,6 @@
 import java.util.Arrays;
 
 public class Sort {
-    public static int comparisons;
     public static void merge(int[] arr, int lo, int hi) {
         if (hi - lo == 0)
             return;
@@ -12,7 +11,8 @@ public class Sort {
     }
 
     public static void hybrid(int[] arr, int lo, int hi, int S) {
-        if (hi - lo < S) {  //switch to insertion sort when sublist <= S 
+        // switch to insertion sort when sublist <= S 
+        if (hi - lo < S) {  
             insertion(arr, lo, hi);
             return;
         }
@@ -24,6 +24,7 @@ public class Sort {
 
     private static void mergeHelper(int[] arr, int lo, int hi) {
         int mid = lo + (hi - lo)/2;
+        // auxiliary arrays to store both sorted lists
         int[] arr1 = Arrays.copyOfRange(arr, lo, mid+1);
         int[] arr2 = Arrays.copyOfRange(arr, mid+1, hi+1);
         int i = 0, j = 0;
@@ -34,9 +35,11 @@ public class Sort {
                 arr[lo++] = arr1[i++];
             Main.comparisons++;
         }
-        while (i < arr1.length) //right sublist is empty
+        // right sublist is empty
+        while (i < arr1.length) 
             arr[lo++] = arr1[i++];
-        while (j < arr2.length) //left sublist is empty
+        // left sublist is empty
+        while (j < arr2.length) 
             arr[lo++] = arr2[j++]; 
     }
 
