@@ -11,7 +11,7 @@ public class Utilities {
         int[] arr = new int[size];
         Random rd = new Random();
         for (int i = 0; i < size; i++)  
-            arr[i] = rd.nextInt(size-1); 
+            arr[i] = rd.nextInt(size); 
         return arr;
     }
 
