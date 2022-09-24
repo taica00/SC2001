@@ -36,7 +36,7 @@ public class PQMinHeap extends PriorityQueue{
         while (leftChild(pos) < size) {
             int lChild = leftChild(pos);
             int rChild = rightChild(pos);
-            int swapPos = pos;
+            int swapPos;
             if (rChild < size)
                 swapPos = pq[rChild] < pq[lChild] ? rChild : lChild;
             else
