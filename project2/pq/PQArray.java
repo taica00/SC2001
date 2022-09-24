@@ -6,10 +6,12 @@ public class PQArray extends PriorityQueue{
         super(n, d);
     }
 
+    @Override
     public void enqueue(int v) {
         pq[size++] = v;
     }
     
+    @Override
     public int dequeue() {
         int index = peek();
         int v = pq[index];
@@ -19,7 +21,7 @@ public class PQArray extends PriorityQueue{
         return v;
     }
 
-    public int peek() {
+    private int peek() {
         int smallestD = d[pq[0]];
         int index = 0;
         for (int i = 1; i < size; i++) {
