@@ -26,7 +26,7 @@ public class Graph {
                 v = rd.nextInt(adjM.length);
                 u = rd.nextInt(adjM.length);
             } while (adjM[v][u] != -1); // ensure that edge does not already exist
-            w = rd.nextInt(adjM.length*2) + 1;
+            w = rd.nextInt(Integer.MAX_VALUE-2) + 1;
             adjM[v][u] = w;
             adjL[v].add(new int[]{u, w});
             edges++;
