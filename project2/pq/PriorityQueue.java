@@ -17,4 +17,10 @@ public abstract class PriorityQueue {
     public boolean isEmpty() {
         return size == 0;
     }
+
+    public void print() {
+        for (int i : pq)
+            System.out.print(i + " ");
+        System.out.println();
+    }
 }
