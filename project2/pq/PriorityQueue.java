@@ -1,6 +1,6 @@
 package pq;
 
-abstract class PriorityQueue {
+public abstract class PriorityQueue {
     protected int[] pq;
     protected int[] d;
     protected int size;
