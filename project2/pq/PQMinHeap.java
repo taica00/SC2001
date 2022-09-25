@@ -9,7 +9,7 @@ public class PQMinHeap extends PriorityQueue{
     @Override
     public void enqueue(int v) {
         pq[size++] = v;
-        fixUp();
+        fixUp(size-1);
     }
 
     @Override
@@ -19,11 +19,20 @@ public class PQMinHeap extends PriorityQueue{
         return pq[size];
     }
 
-    private void fixUp() {
-        int pos = size - 1;
+    public void updateHeap(int v) {
+        for (int i = 0; i < size; i++) {
+            if (pq[i] == v) {
+                fixUp(i);
+                break;
+            }
+        }
+    }
+
+    private void fixUp(int pos) {
+        int par = 0;
         while (pos > 0) {
-            int par = parent(pos);
-            if (d[pq[pos]] < d[pq[par]])
+            par = parent(pos);
+            if (d[pq[pos]] < d[pq[par]]) 
                 swap(pos, par);
             else
                 break;
@@ -38,7 +47,7 @@ public class PQMinHeap extends PriorityQueue{
             int rChild = rightChild(pos);
             int swapPos;
             if (rChild < size)
-                swapPos = pq[rChild] < pq[lChild] ? rChild : lChild;
+                swapPos = d[pq[rChild]] < d[pq[lChild]] ? rChild : lChild;
             else
                 swapPos = lChild;
             if (d[pq[swapPos]] < d[pq[pos]])
