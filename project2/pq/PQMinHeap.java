@@ -1,6 +1,6 @@
 package pq;
 
-public class PQMinHeap extends PriorityQueue{
+public class PQMinHeap extends PriorityQueue {
 
     public PQMinHeap(int n, int[] d) {
         super(n, d);
