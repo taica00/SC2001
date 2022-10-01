@@ -5,8 +5,8 @@ public abstract class PriorityQueue {
     protected int[] d;
     protected int size;
 
-    protected PriorityQueue(int V, int[] d) {
-        pq = new int[V];
+    protected PriorityQueue(int n, int[] d) {
+        pq = new int[n];
         this.d = d;
         size = 0;
     }

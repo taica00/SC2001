@@ -2,8 +2,8 @@ package pq;
 
 public class PQMinHeap extends PriorityQueue {
 
-    public PQMinHeap(int V, int[] d) {
-        super(V, d);
+    public PQMinHeap(int n, int[] d) {
+        super(n, d);
     }
 
     @Override
