@@ -25,7 +25,7 @@ public class PQArray extends PriorityQueue {
         int smallestD = d[pq[0]];
         int index = 0;
         for (int i = 1; i < size; i++) {
-            if (smallestD >= d[pq[i]]) {
+            if (smallestD > d[pq[i]]) {
                 smallestD = d[pq[i]];
                 index = i;
             }
