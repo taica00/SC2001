@@ -1,5 +1,6 @@
 # SC2001
 ## Project 1: Integration of Mergesort & Insertion Sort
+### Array size of 10000000, S value of 29
 Hybrid algorithm: 
 
 Key comparisons: 242318078
