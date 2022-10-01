@@ -13,7 +13,7 @@ public class PQArray extends PriorityQueue {
     
     @Override
     public int dequeue() {
-        int index = peek();
+        int index = findMin();
         int v = pq[index];
         size--;
         for (int i = index; i < size; i++) 
@@ -21,12 +21,12 @@ public class PQArray extends PriorityQueue {
         return v;
     }
 
-    private int peek() {
-        int smallestD = d[pq[0]];
+    private int findMin() {
+        int minD = d[pq[0]];
         int index = 0;
         for (int i = 1; i < size; i++) {
-            if (smallestD > d[pq[i]]) {
-                smallestD = d[pq[i]];
+            if (minD > d[pq[i]]) {
+                minD = d[pq[i]];
                 index = i;
             }
         }
