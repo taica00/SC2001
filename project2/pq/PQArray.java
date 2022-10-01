@@ -2,8 +2,8 @@ package pq;
 
 public class PQArray extends PriorityQueue {
 
-    public PQArray (int n, int[] d) {
-        super(n, d);
+    public PQArray (int V, int[] d) {
+        super(V, d);
     }
 
     @Override
