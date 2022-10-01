@@ -57,17 +57,17 @@ public class Main {
         d[source] = 0;
         PQMinHeap pq = new PQMinHeap(V, d);
         for (int i = 0; i < V; i++) 
-            pq.enqueue(i);
+            pq.enqueue(i);  
         while (!pq.isEmpty()) {
             int u = pq.dequeue();
             S[u] = true;
             for (int[] i : g[u]) {
-                int v = i[0];
-                int w = i[1];
+                int v = i[0];   // vertex v adjacent to vertex u
+                int w = i[1];   // path cost between vertex v and u
                 if (!S[v] && d[u] + w < d[v]) {
                     d[v] = d[u] + w;
                     pi[v] = u;
-                    pq.updateHeap(v);
+                    pq.updateHeap(v);   // priority of vertex v has changed, hence the heap must be updated
                 }
             }
         }
