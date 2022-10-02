@@ -9,7 +9,7 @@ public class Dijkstra {
         throw new IllegalStateException("Utility class");
     }
     
-    public static void AdjMatrix(int source, int[][] g, int V) {
+    public static void adjMatrix(int source, int[][] g, int V) {
         int[] d = new int[V];
         Arrays.fill(d, Integer.MAX_VALUE); 
         int[] pi = new int[V];
@@ -31,7 +31,7 @@ public class Dijkstra {
         }
     }
 
-    public static void dijkstraAdjList(int source, List<int[]>[] g, int V) {
+    public static void adjList(int source, List<int[]>[] g, int V) {
         int[] d = new int[V];
         Arrays.fill(d, Integer.MAX_VALUE);
         int[] pi = new int[V];
