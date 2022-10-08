@@ -32,10 +32,11 @@ public class A {
             System.out.println(endTime - startTime);
         }
 
-        // vary |V|, |E| == 0
+        // vary |V|, |E| == 0.5|V|
         System.out.println();
         for (V = 5; V < 20000; V += 400) {
             Graph g = new Graph(V);
+            g.generateEdges((int)(0.5*V));
             startTime = System.currentTimeMillis();
             Dijkstra.adjMatrix(0, g.adjM, V);
             endTime = System.currentTimeMillis();
