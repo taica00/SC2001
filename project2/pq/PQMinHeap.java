@@ -9,7 +9,6 @@ public class PQMinHeap extends PriorityQueue {
     @Override
     public void enqueue(int v) {
         pq[size++] = v;
-        fixUp(size-1);
     }
 
     @Override
