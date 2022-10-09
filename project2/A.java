@@ -4,14 +4,8 @@ public class A {
     public static void main(String[] args) {
         long startTime, endTime;
         int V = 1000;
-        // Dummy runs
-        for (int E = 0; E <= 1000; E += 100) {
-            Graph g = new Graph(V);
-            g.generateEdges(E);
-            Dijkstra.adjMatrix(0, g.adjM, V);   
-        }
 
-        // vary |E|
+        // |V| == 1000
         for (int E = 0; E <= 100000; E += 2000) {
             Graph g = new Graph(V);
             g.generateEdges(E);
@@ -21,7 +15,18 @@ public class A {
             System.out.println((endTime - startTime)/1000);
         }
 
-        // vary |V|, |E| == |V|
+        // |E| == 1000
+        System.out.println();
+        for (V = 32; V < 20000; V += 400) {
+            Graph g = new Graph(V);
+            g.generateEdges(1000);
+            startTime = System.currentTimeMillis();
+            Dijkstra.adjMatrix(0, g.adjM, V);
+            endTime = System.currentTimeMillis();
+            System.out.println(endTime - startTime);
+        }
+
+        // |E| == |V|
         System.out.println();
         for (V = 5; V < 20000; V += 400) {
             Graph g = new Graph(V);
@@ -32,7 +37,7 @@ public class A {
             System.out.println(endTime - startTime);
         }
 
-        // vary |V|, |E| == 0.5|V|
+        // |E| == 0.5|V|
         System.out.println();
         for (V = 5; V < 20000; V += 400) {
             Graph g = new Graph(V);
