@@ -37,10 +37,13 @@ public class Dijkstra {
         int[] pi = new int[V];
         Arrays.fill(pi, -1);
         boolean[] S = new boolean[V];
-        d[source] = 0;
+        d[source] = 0;  
         PQMinHeap pq = new PQMinHeap(V, d);
-        for (int i = 0; i < V; i++) 
-            pq.enqueue(i);  
+        pq.enqueue(source);  // ensure source is at the root of the heap
+        for (int i = 0; i < V; i++) {
+            if (i != source) 
+                pq.enqueue(i);
+        }
         while (!pq.isEmpty()) {
             int u = pq.dequeue();
             S[u] = true;
