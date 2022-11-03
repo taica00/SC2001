@@ -13,7 +13,6 @@ public class Project3 {
         int n = w.length;
         int[] profit = new int[C+1];
         for (int c = 1; c <= C; c++) {
-            profit[c] = profit[c-1];
             for (int i = 0; i < n; i++) {
                 if (w[i] <= c)
                     profit[c] = Math.max(profit[c], profit[c-w[i]] + p[i]);
